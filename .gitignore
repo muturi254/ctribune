@@ -1,0 +1,8 @@
+# remove pylint
+virtual/
+__pycache__/
+.vscode/
+
+
+*.pyc
+.env
