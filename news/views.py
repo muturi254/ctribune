@@ -12,9 +12,6 @@ def convert_date(dates):
     return day
 
 # Create your views here.
-def welcome(request):
-    return render(request, 'welcome.html')
-
 def news_of_day(request):
     date = dt.date.today()
     return render(request, 'all-news/todays-news.html',{"date": date})
