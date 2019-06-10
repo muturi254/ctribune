@@ -1,9 +1,13 @@
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block styles %}
+        {% bootstrap_css %}
+    {% endblock %}
     {% if title %}
         <title>Moriga Tribune {{ title}} </title>
     {% else %}
@@ -11,8 +15,14 @@
     {% endif %}
 </head>
 <body>
+    {% include 'navbar.html'%}
     {% block content %}
-        <h1>News for {{ date |date:"l d-F Y"}}</h1>
+        <h2>News for {{ date |date:"l d-F Y"}}</h2>
+    {% endblock %}
+
+    {% block scripts %}
+        <!-- add bootstrap and jquery -->
+        {% bootstrap_javascript jquery='full' %}
     {% endblock %}
 </body>
 </html>
