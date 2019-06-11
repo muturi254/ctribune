@@ -7,6 +7,7 @@ class Editor(models.Model):
     last_name = models.CharField(max_length=30)
     email = models.EmailField()
     phone_number = models.CharField(max_length=10, blank=True)
+    article_image = models.ImageField(upload_to='articles')
 
     class Meta:
         ordering = ['first_name']
@@ -50,4 +51,9 @@ class Article(models.Model):
     @classmethod
     def days_news(cls, date):
         news = cls.objects.filter(pub_date__date=date)
+        return news
+    
+    @classmethod
+    def search_by_title(cls, search_term):
+        news = cls.objects.filter(title__icontains=search_term)
         return news
